@@ -74,3 +74,25 @@ function copyToClipboard(text) {
     console.error('Failed to copy:', err);
   });
 }
+// Add this to the end of scripts.js
+document.addEventListener('DOMContentLoaded', () => {
+  const themeToggle = document.createElement('button');
+  themeToggle.className = 'theme-toggle';
+  themeToggle.innerHTML = '🌙';
+  themeToggle.title = 'Toggle Dark Mode';
+  document.body.appendChild(themeToggle);
+
+  // Check for saved theme preference or use system preference
+  const savedTheme = localStorage.getItem('theme') ||
+                    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', savedTheme);
+
+  // Toggle theme on button click
+  themeToggle.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+  });
+});
+
