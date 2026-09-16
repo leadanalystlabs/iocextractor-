@@ -5,7 +5,7 @@
 
 // --- CONFIGURATION ---
 // REPLACE THIS with your actual Cloudflare Worker URL
-const WORKER_URL = 'https://your-worker-url.workers.dev/extract';
+const WORKER_URL = 'https://iocextractor.leadanalystlabs.com';
 
 // --- DOM ELEMENTS ---
 const inputText = document.getElementById('inputText');
